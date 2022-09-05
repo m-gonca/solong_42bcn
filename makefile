@@ -6,9 +6,13 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 16:41:28 by mogonzal          #+#    #+#              #
-#    Updated: 2022/09/05 17:31:08 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/05 17:52:02 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME = 	so_long.c
+
+HEADER = 	so_long.h
 
 SRC	=	main.c
 
@@ -20,14 +24,14 @@ OBJ	=	$(SRC:.c=.o)
 
 CC		=	gcc
 
-%.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
-
 CFLAGS	=	-Wall -Wextra -Werror -MMD
+
+%.o: %.c
+	$(CC) $(FLAGS) -Imlx -I mlx/mlx.h -c $< -o $@
 
 RM		=	rm -f
 
-HEADER = 	so_long.h
+
 
 #___________________________________________________________#
 
@@ -36,7 +40,7 @@ all:		libft server client
 libft:		
 			@$(MAKE) -C ./libft all
 			
-server:		$(OBJ1) $(LIBFT)
+$(NAME):	$(OBJ) $(LIBFT)
 			@$(CC) $(CFLAGS) $(OBJ1) $(LIBFT) -o server
 			@echo "Compiling server"
 
