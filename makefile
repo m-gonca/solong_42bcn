@@ -6,19 +6,19 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 16:41:28 by mogonzal          #+#    #+#              #
-#    Updated: 2022/09/05 17:52:02 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/05 18:37:15 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 	so_long.c
+NAME = 		so_long.a
 
 HEADER = 	so_long.h
 
-SRC	=	main.c
+SRC	=		main.c
 
 # SRC_BNS	=	main.c
 
-OBJ	=	$(SRC:.c=.o)
+OBJ	=		$(SRC:.c=.o)
 
 # OBJ_BNS	=	$(OBJ_BNS:.c=.o)
 
@@ -27,42 +27,40 @@ CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -MMD
 
 %.o: %.c
-	$(CC) $(FLAGS) -Imlx -I mlx/mlx.h -c $< -o $@
+			$(CC) $(FLAGS) -Imlx -I mlx/mlx.h -c $< -o $@
 
 RM		=	rm -f
+
+LIBFT = libft/libft.a
+
+GNL = get_next_line/get_next_line.a
 
 
 
 #___________________________________________________________#
 
-all:		libft server client
+all:		libft getnextline name
 
 libft:		
 			@$(MAKE) -C ./libft all
+
+getnextline: ./getnextline/getnextline_utils.h
+			@$(CC) $(CFLAGS) BUFFER ./getnextline/getnextline.c ./getnextline/getnextline_utils.c
 			
-$(NAME):	$(OBJ) $(LIBFT)
-			@$(CC) $(CFLAGS) $(OBJ1) $(LIBFT) -o server
-			@echo "Compiling server"
-
-client:		$(OBJ2) $(LIBFT)
-			@$(CC) $(CFLAGS) $(OBJ2) $(LIBFT) -o client
-			@echo "Compiling client"
-
-bonus:		libft $(BNS_O1) $(BNS_O2) $(LIBFT)
-			@$(CC) $(CFLAGS) $(BNS_O1) $(LIBFT) -o server_bonus
-			@echo "Compiling server_bonus"
-			@$(CC) $(CFLAGS) $(BNS_O2) $(LIBFT) -o client_bonus
-			@echo "Compiling client_bonus"
+$(NAME):	$(OBJ) $(LIBFT) $(GNL)
+			@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(GNL) -o so_long
+			@echo "Compiling so_long"
 			
 clean:		
 			$(RM) $(OBJ)
-			$(RM) $(OBJ_BNS)
+#			$(RM) $(OBJ_BNS)
 			@echo "Clean done"
 
 fclean:		clean
-			$(RM) server client
-			$(RM) server_bonus client_bonus
+			$(RM) so_long
+#			$(RM) so_long_bonus
 			$(MAKE) -C ./libft fclean
+			$(RM) $(GNL)
 			@echo "FClean done"
 
 re:			fclean all
