@@ -6,8 +6,15 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:53:51 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/05 16:54:00 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:29:18 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main ()
+#include "so_long.h"
+
+
+int main (int argc, char **argv)
+{
+	ft_checker(argc, argv);
+	
+}

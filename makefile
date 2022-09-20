@@ -6,7 +6,7 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 16:41:28 by mogonzal          #+#    #+#              #
-#    Updated: 2022/09/05 18:37:15 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/20 11:43:39 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,14 @@ LIBFT = libft/libft.a
 
 GNL = get_next_line/get_next_line.a
 
-
+MLX = mlx/mlx.a
 
 #___________________________________________________________#
 
-all:		libft getnextline name
+all:		mlx libft getnextline $(NAME)
+
+mlx:
+			@$(MAKE) -C mlx
 
 libft:		
 			@$(MAKE) -C ./libft all
@@ -47,8 +50,8 @@ libft:
 getnextline: ./getnextline/getnextline_utils.h
 			@$(CC) $(CFLAGS) BUFFER ./getnextline/getnextline.c ./getnextline/getnextline_utils.c
 			
-$(NAME):	$(OBJ) $(LIBFT) $(GNL)
-			@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(GNL) -o so_long
+$(NAME):	$(OBJ) $(LIBFT) $(GNL) $(MLX) $(HEADER)
+			@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(GNL)
 			@echo "Compiling so_long"
 			
 clean:		
@@ -57,9 +60,10 @@ clean:
 			@echo "Clean done"
 
 fclean:		clean
-			$(RM) so_long
+			$(RM) $(NAME)
 #			$(RM) so_long_bonus
 			$(MAKE) -C ./libft fclean
+			$(MAKE) -C ./mlx fclean
 			$(RM) $(GNL)
 			@echo "FClean done"
 
