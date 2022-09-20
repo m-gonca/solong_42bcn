@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:09:47 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/20 13:29:53 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:13:37 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@
 
 typedef struct s_game
 {
-	void			*content;
-	struct s_list	*next;
+	char			**map_array;
+	int				moves;
 }					t_game;
+
+int ft_checker (int argc, char **argv)
+int	ft_parameter_checker (int argc, char **argv);
+int ft_components_checker (char *map, int fd);
+int	ft_path_checker (char *map);
+int	ft_check_borders(map_array);
+int	ft_check_player(map_array);
+int	ft_check_exit(map_array);
+int	ft_check_collectibles(map_array);
+
+

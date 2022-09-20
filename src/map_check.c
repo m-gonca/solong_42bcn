@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 16:53:51 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/20 16:13:32 by mogonzal         ###   ########.fr       */
+/*   Created: 2022/09/20 15:37:58 by mogonzal          #+#    #+#             */
+/*   Updated: 2022/09/20 15:57:08 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-int main (int argc, char **argv)
+int	ft_check_borders(char **map_array)
 {
-	t_game	game;
 	
-	game.moves = 0;
-	ft_checker(argc, argv);
-	printf("Everything is ok");
-	return(0);
+}
+
+int	ft_check_player(char **map_array)
+{
+	
+}
+
+int	ft_check_exit(char **map_array)
+{
+	
+}
+
+int	ft_check_collectibles(char **map_array)
+{
+	
 }
