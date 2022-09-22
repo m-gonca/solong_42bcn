@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 12:52:58 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 15:53:31 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:41:16 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <fcntl.h>
+
+# define BUFFER_SIZE 1
 
 typedef struct s_list
 {
@@ -49,6 +52,7 @@ void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin_2(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
@@ -67,5 +71,12 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char	*get_next_line(int fd);
+char	*create_malloc_of_strjoin(char *s1);
+char	*ft_get_line(char *stock);
+char	*ft_fill(int fd, char *stock);
+char	*ft_cut_line(char *stock);
+
+
 
 #endif

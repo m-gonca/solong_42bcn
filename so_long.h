@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:09:47 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:06:04 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:42:29 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 #include <limits.h>
 #include "libft/libft.h"
 #include "mlx/mlx.h"
-#include "getnextline/get_next_line.h"
 
 # define BUFFER_SIZE 1
 # define SIZE 32
@@ -52,4 +51,4 @@ int	ft_check_fill(int num);
 int ft_find_in_array(char **map_array, int obj);
 
 
-
+#endif

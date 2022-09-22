@@ -6,11 +6,11 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:57:40 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/05 18:19:54 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:41:25 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_get_line(char *stock)
 {

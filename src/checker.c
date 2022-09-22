@@ -6,11 +6,11 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:13:40 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:06:07 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:46:29 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 // 1-check parameters are correct:
 //		-2 parameters
@@ -26,18 +26,21 @@
 
 int	ft_parameter_checker (int argc, char **argv, t_game game)
 {
+	char	*str;
+
+	str = argv[1];
 	if (argc != 2)
 	{
 		ft_putstr_fd("Add one map as parameter", 1);
 		exit(1);
 	}
-	if (ft_strncmp(&file_name[ft_strlen(argv[1]) - 4], ".ber") != 0)
+	if (ft_strncmp(&str[ft_strlen(str) - 4], ".ber", 4) != 0)
 	{
 		ft_putstr_fd("Map must be a .ber file", 1);
 		exit(1);
 	}
 	game.fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
+	if (game.fd < 0)
 	{
 		ft_putstr_fd("Map can't be opened", 1);
 		exit(1);

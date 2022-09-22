@@ -6,12 +6,11 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:53:51 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:06:08 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:54:53 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int main (int argc, char **argv)
 {

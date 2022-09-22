@@ -6,11 +6,11 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 16:11:09 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/06/09 21:29:04 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:25:59 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -42,7 +42,7 @@ char	*create_malloc_of_strjoin(char *s1)
 	return (s1);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_2(char *s1, char *s2)
 {
 	char	*ptr3;
 	size_t	len_s1;

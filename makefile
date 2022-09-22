@@ -6,13 +6,18 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 16:41:28 by mogonzal          #+#    #+#              #
-#    Updated: 2022/09/22 18:06:39 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/22 18:56:09 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 		so_long.a
 
 HEADER = 	so_long.h
+
+LIBFT = libft/libft.a
+
+
+MLX = mlx/mlx.h
 
 SRC	=		main.c \
 			src/checker.c \
@@ -34,27 +39,20 @@ CFLAGS	=	-Wall -Wextra -Werror -MMD
 
 RM		=	rm -f
 
-LIBFT = libft/libft.a
 
-GNL = get_next_line/get_next_line.a
-
-MLX = mlx/mlx.a
 
 #___________________________________________________________#
 
-all:		mlx libft getnextline $(NAME)
+all:		mlx libft $(NAME)
 
 mlx:
 			@$(MAKE) -C mlx
 
 libft:		
 			@$(MAKE) -C ./libft all
-
-getnextline: ./getnextline/getnextline_utils.h
-			@$(CC) $(CFLAGS) BUFFER ./getnextline/getnextline.c ./getnextline/getnextline_utils.c
 			
-$(NAME):	$(OBJ) $(LIBFT) $(GNL) $(MLX) $(HEADER)
-			@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(GNL)
+$(NAME):	$(OBJ) $(LIBFT) $(MLX) $(HEADER)
+			@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) $(GNL)
 			@echo "Compiling so_long"
 			
 clean:		

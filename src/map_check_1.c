@@ -6,18 +6,18 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:37:58 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:06:04 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:47:46 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int ft_check_rectangular(t_game game)
 {
 	int	y;
 
 	y = 0;
-	game.x = ft_strlen(map_array[y]);
+	game.x = ft_strlen(game.map_array[y]);
 	
 	while (game.map_array[y])
 	{
@@ -65,7 +65,7 @@ int	ft_check_player(t_game game)
 {
 	int p;
 	
-	p = ft_find_in_array(game.map_array, 'P') 
+	p = ft_find_in_array(game.map_array, 'P');
 	if (p != 1)
 	{
 		ft_putstr_fd("Map has a wrong num of Players", 1);
@@ -78,7 +78,7 @@ int	ft_check_exit(t_game game)
 {
 	int e;
 	
-	e = ft_find_in_array(game.map_array, 'E') 
+	e = ft_find_in_array(game.map_array, 'E');
 	if (e != 1)
 	{
 		ft_putstr_fd("Map has a wrong num of Exits", 1);
@@ -89,7 +89,7 @@ int	ft_check_exit(t_game game)
 
 int	ft_check_collectibles(t_game game)
 {
-	game.collect = ft_find_in_array(game.map_array, 'C') 
+	game.collect = ft_find_in_array(game.map_array, 'C');
 
 	if (game.collect == 0)
 	{

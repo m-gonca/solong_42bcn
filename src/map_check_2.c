@@ -6,11 +6,11 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:05:52 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:06:06 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:51:15 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 // int	ft_check_path(char **map_array)
 // {
@@ -30,7 +30,7 @@ int	ft_check_wall(int num)
 
 int	ft_check_fill(int num)
 {
-	if (num != 0 || num != 'C' || num != 'E' || num = 'P')
+	if (num != 0 || num != 'C' || num != 'E' || num != 'P')
 	{
 		ft_putstr_fd("Map has a wrong filling", 1);
 		exit(1);

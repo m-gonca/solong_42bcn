@@ -6,7 +6,7 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 20:03:24 by mogonzal          #+#    #+#              #
-#    Updated: 2022/09/22 15:53:19 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/22 18:38:35 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 HEADER = libft.h
 
-SRCS =	ft_arraylen.c
+SRCS =	ft_arraylen.c \
 		ft_bzero.c \
 		ft_atoi.c \
 		ft_calloc.c \
@@ -48,7 +48,9 @@ SRCS =	ft_arraylen.c
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
-		ft_strdup.c 		
+		ft_strdup.c \
+		get_next_line.c \
+		get_next_line_utils.c
 
 SRCS_BONUS = 	ft_lstnew.c \
 				ft_lstadd_front.c \
