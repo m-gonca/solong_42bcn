@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mogonzal <mogonzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 12:52:58 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/05/05 15:52:55 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:53:31 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+int		ft_arraylen(char **array);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

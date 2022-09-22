@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:13:40 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/20 16:38:47 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:06:07 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@
 // 3-check map has a valid path to exit:
 // 		-no idea wtf to do with this btm
 
-int	ft_parameter_checker (int argc, char **argv)
+int	ft_parameter_checker (int argc, char **argv, t_game game)
 {
-	int	fd;
-
 	if (argc != 2)
 	{
 		ft_putstr_fd("Add one map as parameter", 1);
@@ -38,50 +36,48 @@ int	ft_parameter_checker (int argc, char **argv)
 		ft_putstr_fd("Map must be a .ber file", 1);
 		exit(1);
 	}
-	fd = open(argv[1], O_RDONLY);
+	game.fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
 		ft_putstr_fd("Map can't be opened", 1);
 		exit(1);
 	}
-	return (fd);	
+	return (0);	
 }
 
-int ft_components_checker (char *map, int fd)
+int ft_array (t_game game)
 {
-	int	i;
-	char *line;
-	char **map_array;
+	int	y;
 	
-	i = 0;
+	y = 0;
 	//chequear el error del getnextline
-	while (get_next_line(fd, &line) > 0)
+	while (get_next_line(game.fd) > 0)
 	{
-		map_array[i] = line;
-		i++;
+		game.map_array[y] = get_next_line(game.fd);
+		y++;
 	}
-	ft_check_borders(map_array);
-	ft_check_player(map_array);
-	ft_check_exit(map_array);
-	ft_check_collectibles(map_array);
-	
-	return (map_array);
+	close(game.fd);
+	game.y = y;
+	return (0);
 }
 
-int	ft_path_checker (char **map_array)
+int ft_map_checker (t_game game)
 {
-	//no idea wtf to do with this btm
+	ft_check_rectangular(game);
+	ft_check_borders(game);
+	ft_check_player(game);
+	ft_check_exit(game);
+	ft_check_collectibles(game);
+	// ft_check_path(game);
+	
+	return (0);
 }
 
-
-int ft_checker (int argc, char **argv)
-{
-	int fd;
-	char **map_array;
+int ft_checker (int argc, char **argv, t_game game)
+{	
+	ft_parameter_checker(argv, argc, game);
+	ft_array(game);
+	ft_map_checker(game);
 	
-	fd = ft_parameter_checker(argv, argc);
-	map_array = ft_components_checker(argv[1], fd);
-	ft_path_checker(map_array);
-	
-	return (map_array);
+	return (0);
 }

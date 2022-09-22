@@ -6,7 +6,7 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 20:03:24 by mogonzal          #+#    #+#              #
-#    Updated: 2022/05/20 20:58:39 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/22 15:53:19 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libft.a
 
 HEADER = libft.h
 
-SRCS =	ft_bzero.c \
+SRCS =	ft_arraylen.c
+		ft_bzero.c \
 		ft_atoi.c \
 		ft_calloc.c \
 		ft_isalnum.c \

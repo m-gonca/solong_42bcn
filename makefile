@@ -6,7 +6,7 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 16:41:28 by mogonzal          #+#    #+#              #
-#    Updated: 2022/09/20 15:55:35 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/22 18:06:39 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ HEADER = 	so_long.h
 
 SRC	=		main.c \
 			src/checker.c \
-			src/map_check.c
+			src/map_check_1.c \
+			src/map_check_2.c
 
 # SRC_BNS	=	main.c
 

@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:09:47 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/20 16:13:37 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:06:04 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,29 @@
 
 typedef struct s_game
 {
-	char			**map_array;
 	int				moves;
+	char			**map_array;
+	int				fd;
+	int				y;
+	int				x;
+	int				collect;
 }					t_game;
 
-int ft_checker (int argc, char **argv)
-int	ft_parameter_checker (int argc, char **argv);
-int ft_components_checker (char *map, int fd);
-int	ft_path_checker (char *map);
-int	ft_check_borders(map_array);
-int	ft_check_player(map_array);
-int	ft_check_exit(map_array);
-int	ft_check_collectibles(map_array);
+int ft_checker (int argc, char **argv, t_game game);
+int	ft_parameter_checker (int argc, char **argv, t_game game);
+int ft_array (t_game game);
+int ft_map_checker (t_game game);
+
+int ft_check_rectangular(t_game game);
+int	ft_check_borders(t_game game);
+int	ft_check_player(t_game game);
+int	ft_check_exit(t_game game);
+int	ft_check_collectibles(t_game game);
+
+// int	ft_check_path(char **map_array);
+int	ft_check_wall(int num);
+int	ft_check_fill(int num);
+int ft_find_in_array(char **map_array, int obj);
+
 
 

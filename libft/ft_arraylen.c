@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check.c                                        :+:      :+:    :+:   */
+/*   ft_arraylen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 15:37:58 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/20 15:57:08 by mogonzal         ###   ########.fr       */
+/*   Created: 2022/09/22 15:52:13 by mogonzal          #+#    #+#             */
+/*   Updated: 2022/09/22 15:53:39 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	ft_check_borders(char **map_array)
+int ft_arraylen(char **array)
 {
-	
-}
+	int i;
 
-int	ft_check_player(char **map_array)
-{
-	
-}
-
-int	ft_check_exit(char **map_array)
-{
-	
-}
-
-int	ft_check_collectibles(char **map_array)
-{
-	
+	i = 0;
+	while (array[i])
+		i++;
+	return (i);
 }
