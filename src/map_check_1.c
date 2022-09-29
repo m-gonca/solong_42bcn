@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:37:58 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/29 16:16:16 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:30:54 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,11 @@ int	ft_check_borders(t_game *game)
 			{
 				printf("checking FILL\n");
 				printf("Esto es la Y %d\n y la X %d\n", y, x);
+				if (game->map_array[y][x] == 'P')
+				{
+					game->player_y = y;
+					game->player_x = y;
+				}
 				ft_check_fill(game->map_array[y][x]);
 				printf("FINISH checking FILL\n");
 			}

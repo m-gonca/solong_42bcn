@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:13:40 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/29 16:15:21 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:50:53 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 // 		-check the map only has one player/entrance
 // 		-check map has minimum 1 collectible
 // 3-check map has a valid path to exit:
-// 		-no idea wtf to do with this btm
+// 		-go through the array starting from the P 
 
 int	ft_parameter_checker (int argc, char **argv, t_game *game)
 {
@@ -85,7 +85,7 @@ int ft_map_checker (t_game *game)
 	ft_check_player(game);
 	ft_check_exit(game);
 	ft_check_collectibles(game);
-	// ft_check_path(game);
+	ft_check_path(game->map_array, game->player_y, game->player_x, game->collect);
 	//printf("saliendo en map checker\n");
 
 	return (0);

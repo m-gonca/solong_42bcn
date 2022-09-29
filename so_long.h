@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:09:47 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/29 14:01:17 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:50:24 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_game
 	int				height;
 	int				width;
 	int				collect;
+	int				player_x;
+	int				player_y;
 }					t_game;
 
 int ft_checker (int argc, char **argv, t_game *game);
@@ -46,7 +48,7 @@ int	ft_check_player(t_game *game);
 int	ft_check_exit(t_game *game);
 int	ft_check_collectibles(t_game *game);
 
-// int	ft_check_path(char **map_array);
+int	ft_check_path(char **map_array, int y, int x, int collect);
 int	ft_check_wall(char c);
 int	ft_check_fill(char c);
 int ft_find_in_array(char **map_array, char obj);
