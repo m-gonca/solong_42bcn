@@ -6,7 +6,7 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 16:41:28 by mogonzal          #+#    #+#              #
-#    Updated: 2022/09/22 18:56:09 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/27 16:01:23 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ fclean:		clean
 			$(RM) $(NAME)
 #			$(RM) so_long_bonus
 			$(MAKE) -C ./libft fclean
-			$(MAKE) -C ./mlx fclean
+			$(MAKE) -C ./mlx clean
 			$(RM) $(GNL)
 			@echo "FClean done"
 

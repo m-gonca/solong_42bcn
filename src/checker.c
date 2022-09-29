@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:13:40 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:46:29 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:15:21 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 // 3-check map has a valid path to exit:
 // 		-no idea wtf to do with this btm
 
-int	ft_parameter_checker (int argc, char **argv, t_game game)
+int	ft_parameter_checker (int argc, char **argv, t_game *game)
 {
 	char	*str;
-
+	
 	str = argv[1];
 	if (argc != 2)
 	{
@@ -39,8 +39,8 @@ int	ft_parameter_checker (int argc, char **argv, t_game game)
 		ft_putstr_fd("Map must be a .ber file", 1);
 		exit(1);
 	}
-	game.fd = open(argv[1], O_RDONLY);
-	if (game.fd < 0)
+	game->fd = open(argv[1], O_RDONLY);
+	if (game->fd < 0)
 	{
 		ft_putstr_fd("Map can't be opened", 1);
 		exit(1);
@@ -48,37 +48,53 @@ int	ft_parameter_checker (int argc, char **argv, t_game game)
 	return (0);	
 }
 
-int ft_array (t_game game)
+int ft_array (t_game *game)
 {
-	int	y;
+	char *line;
 	
-	y = 0;
-	//chequear el error del getnextline
-	while (get_next_line(game.fd) > 0)
+	game->height = 0;
+	game->map_line = "";
+	line = "";
+	while (line)
 	{
-		game.map_array[y] = get_next_line(game.fd);
-		y++;
+		line = get_next_line(game->fd);
+		//printf("%s", line);
+		if (!line)
+			break;
+		if(*line == '\n')
+		{			
+			ft_putstr_fd("Empty line in map", 1);
+			exit(1);
+		}
+		else if(game->height == 0)
+			game->width = ft_strlen(line) - 1;
+		game->map_line = ft_strjoin(game->map_line, line);
+		game->height++;
+		free(line);
 	}
-	close(game.fd);
-	game.y = y;
+	game->map_array = ft_split(game->map_line, '\n');
+	close(game->fd);
 	return (0);
 }
 
-int ft_map_checker (t_game game)
+int ft_map_checker (t_game *game)
 {
+	//printf("entrando en map checker\n");
 	ft_check_rectangular(game);
 	ft_check_borders(game);
 	ft_check_player(game);
 	ft_check_exit(game);
 	ft_check_collectibles(game);
 	// ft_check_path(game);
-	
+	//printf("saliendo en map checker\n");
+
 	return (0);
 }
 
-int ft_checker (int argc, char **argv, t_game game)
+int ft_checker (int argc, char **argv, t_game *game)
 {	
-	ft_parameter_checker(argv, argc, game);
+	//printf("entrando en checker\n");
+	ft_parameter_checker(argc, argv, game);
 	ft_array(game);
 	ft_map_checker(game);
 	

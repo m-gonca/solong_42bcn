@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:05:52 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:51:15 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:22:41 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 // 	//no idea wtf to do with this btm
 // }
 
-int	ft_check_wall(int num)
+int	ft_check_wall(char c)
 {
-	if (num != '1')
+	if (c != '1')
 	{
 		ft_putstr_fd("Map walls failed", 1);
 		exit(1);
@@ -28,9 +28,9 @@ int	ft_check_wall(int num)
 }
 
 
-int	ft_check_fill(int num)
+int	ft_check_fill(char c)
 {
-	if (num != 0 || num != 'C' || num != 'E' || num != 'P')
+	if (c != '0' && c != 'C' && c != 'E' && c != 'P' && c != '1')
 	{
 		ft_putstr_fd("Map has a wrong filling", 1);
 		exit(1);
@@ -38,7 +38,7 @@ int	ft_check_fill(int num)
 	return (0);
 }
 
-int ft_find_in_array(char **map_array, int obj)
+int ft_find_in_array(char **map_array, char obj)
 {
 	int	y;
 	int	x;

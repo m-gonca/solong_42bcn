@@ -6,7 +6,7 @@
 #    By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 20:03:24 by mogonzal          #+#    #+#              #
-#    Updated: 2022/09/22 18:38:35 by mogonzal         ###   ########.fr        #
+#    Updated: 2022/09/27 16:00:34 by mogonzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,21 +50,18 @@ SRCS =	ft_arraylen.c \
 		ft_putnbr_fd.c \
 		ft_strdup.c \
 		get_next_line.c \
-		get_next_line_utils.c
-
-SRCS_BONUS = 	ft_lstnew.c \
-				ft_lstadd_front.c \
-				ft_lstsize.c \
-				ft_lstlast.c \
-				ft_lstadd_back.c \
-				ft_lstdelone.c \
-				ft_lstclear.c \
-				ft_lstiter.c \
-				ft_lstmap.c
+		get_next_line_utils.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c
 					
 OBJS = $(SRCS:.c=.o)
-
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 CC = gcc -c
 
@@ -82,26 +79,12 @@ $(NAME):	$(OBJS) $(HEADER)
 		ar -rcs $(NAME) $(OBJS)
 		ranlib $(NAME)
 
-bonus:	$(OBJS) $(OBJS_BONUS) $(HEADER)
-		ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
-		ranlib $(NAME)
-		@touch $@
-
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) bonus
 
 re: fclean all
-
-re2: fclean bonus
-
-test:
-	gcc $(SRCS) && ./a.out
-
-test2:
-	gcc $(SRCS_BONUS) && ./a.out
 
 .PHONY: all clean fclean re 

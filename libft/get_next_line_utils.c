@@ -6,29 +6,11 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 16:11:09 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:25:59 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:54:17 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	int		i;
-	int		l;
-	char	*ptr;
-
-	ptr = (char *)s;
-	l = ft_strlen(s);
-	i = 0;
-	while (i <= l)
-	{
-		if (ptr[i] == (unsigned char)c)
-			return (&ptr[i]);
-		i++;
-	}
-	return (NULL);
-}
 
 char	*create_malloc_of_strjoin(char *s1)
 {
@@ -42,7 +24,7 @@ char	*create_malloc_of_strjoin(char *s1)
 	return (s1);
 }
 
-char	*ft_strjoin_2(char *s1, char *s2)
+char	*ft_strjoin2(char *s1, char *s2)
 {
 	char	*ptr3;
 	size_t	len_s1;
@@ -66,18 +48,6 @@ char	*ft_strjoin_2(char *s1, char *s2)
 	ptr3[len_s1 + count -1] = '\0';
 	free(s1);
 	return (ptr3);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
-		i++;
-	return (i);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

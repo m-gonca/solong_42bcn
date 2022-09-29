@@ -6,11 +6,24 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:57:40 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/22 18:41:25 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:44:02 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+// /*	1 -> get next line recibe un fd desde la funcion open, y chequea si
+// 		existe el buffersize y el fd.
+// 	2 -> si hay error devuelve null y si funciona devuelve el str leido.
+// 	3 -> Para ello coge el fd y lo lleva a ft_fill, donde guarda en un variable
+// 		estatica llamada buffer, lo que ha leido, y devuelve el string leido 
+// 		buffer junto lo que quedaba en stock. Esta funcion lee de tantos en
+// 		tantos buffersize, hasta que en uno de esos buffersize encuentra un 
+// 		salto de line:wa.
+// 	4 --> devolvemos el string cortado en el salto de linea con con ft_get_line
+// 	5 --> cogemos lo que nos quedaba de string despues del salto de linea 
+// 		y lo guardamos con ft_cut_line en stock para la proxima vez que 
+// 		se llame a la funcion
+// */
 
 char	*ft_get_line(char *stock)
 {
@@ -69,7 +82,7 @@ char	*ft_fill(int fd, char *stock)
 		if (read_bytes > 0)
 		{
 			buffer[read_bytes] = '\0';
-			stock = ft_strjoin(stock, buffer);
+			stock = ft_strjoin2(stock, buffer);
 		}
 	}
 	free (buffer);
