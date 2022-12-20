@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:13:40 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/29 17:50:53 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/12/20 20:16:25 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ int ft_array (t_game *game)
 
 int ft_map_checker (t_game *game)
 {
-	//printf("entrando en map checker\n");
 	ft_check_rectangular(game);
 	ft_check_borders(game);
 	ft_check_player(game);
 	ft_check_exit(game);
 	ft_check_collectibles(game);
-	ft_check_path(game->map_array, game->player_y, game->player_x, game->collect);
-	//printf("saliendo en map checker\n");
+	ft_check_path(game);
+	printf("saliendo en map checker\n");
+	//printf(" \n\n\n ESTO ES UNA PRUEBA PARA SABER SI SE MODIFICA ALGUN DATO DE LA ESTRUCTURA GAME %d\n\n\n", game->collect);
 
 	return (0);
 }

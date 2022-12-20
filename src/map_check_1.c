@@ -6,7 +6,7 @@
 /*   By: mogonzal <mogonzal@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:37:58 by mogonzal          #+#    #+#             */
-/*   Updated: 2022/09/29 17:30:54 by mogonzal         ###   ########.fr       */
+/*   Updated: 2022/10/07 16:52:36 by mogonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_check_borders(t_game *game)
 
 	y = 0;
 	x = 0;
-	printf("entrando en check borders\n");
+//	printf("entrando en check borders\n");
 
 	//run the array of strings
 	while (game->map_array[y])
@@ -46,41 +46,41 @@ int	ft_check_borders(t_game *game)
 		//running each string
 		while (game->map_array[y][x])
 		{
-			printf("\n\nCHAR THAT'S GOING TO BE CHECKED %c\n\n", game->map_array[y][x]);
+//			printf("\n\nCHAR THAT'S GOING TO BE CHECKED %c\n\n", game->map_array[y][x]);
 
 			//checking first and last string having only 1s
 			if (y == 0 || y == ft_arraylen(game->map_array) - 1)
 			{	
-				printf("Checking first or last line\n");
-				printf("Esto es la Y %d\n y la X %d\n", y, x);
+				//printf("Checking first or last line\n");
+				//printf("Esto es la Y %d\n y la X %d\n", y, x);
 				ft_check_wall(game->map_array[y][x]);
 			}
 			//checking first and last chars of the intermediate strings having only 1s
 			else if (x == 0 || x == ft_strlen(game->map_array[y]) - 1)
 			{
-				printf("checking first or last char of each line\n");
-				printf("Esto es la Y %d\n y la X %d\n", y, x);
+				//printf("checking first or last char of each line\n");
+				//printf("Esto es la Y %d\n y la X %d\n", y, x);
 				ft_check_wall(game->map_array[y][x]);
 			}
 			//check that the filling are made of 0 P C or E
 			else if (x != 0 || x != ft_strlen(game->map_array[y]) - 1)
 			{
-				printf("checking FILL\n");
-				printf("Esto es la Y %d\n y la X %d\n", y, x);
+				//printf("checking FILL\n");
+				//printf("Esto es la Y %d\n y la X %d\n", y, x);
 				if (game->map_array[y][x] == 'P')
 				{
 					game->player_y = y;
-					game->player_x = y;
+					game->player_x = x;
+					//printf("\n\nEL PLAYER EN ORIGEN ESTA EN %d %d", game->player_y, game->player_x);
 				}
 				ft_check_fill(game->map_array[y][x]);
-				printf("FINISH checking FILL\n");
 			}
 			x++;
 		}
 		x = 0;
 		y++;
 	}
-	printf("saliendo de check borders\n");
+	//printf("saliendo de check borders\n");
 	return (0);
 }
 
