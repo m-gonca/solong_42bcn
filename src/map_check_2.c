@@ -17,182 +17,59 @@
 	{
 		t_path path;
 		
-		path.map_array = path.map_array[game->height][game->width];
-		path.player_y = game->player_y;
-		path.player_x = game->player_x;
+		path.map_visited = path.map_visited[game->height][game->width];
 		path.collect = game->collect;
 		
-		ft_memcpy(path->map_array, game->map_array, sizeof(char)*5*5);
+		ft_memcpy(path->map_visited, game->map_array, sizeof(char)*game->height*game->width);
 
+		//testear esto
 
+		// path.player_y--;
+		// printf("%d" ,path.player_y);
+		// printf("%d" ,game.player_y);
 
-
+		if(ft_check_path(game->map_array, &path, game->player_y, game->player_x) == 1)
+		{
+			ft_putstr_fd("No Possible path found", 1);
+			exit(1);
+		}
+		else return(0);
 		
 	}
 
-/*int ft_check_right(t_path *path)
-{
-	char 	**map;
-	int		x;
-	int		y;
-	
-	map = path->map_array;
-	x = path->player_x;
-	y = path->player_y;
 
-	printf("\n\nhe entrado en posicion DERECHA\n");
-	printf("y = %d\n", path->player_y);
-	printf("x = %d\n", path->player_x);
-	sleep(2);
-	
-	if(map[y][x + 1] == 'E' && path->collect == 0)
-	{
-		ft_putstr_fd("Possible path found", 1);
-		exit(1);
-	}
-	else if ((x + 1 != path->temp_x) && (map[y][x + 1] == 'C'||\
-	map[y][x + 1] == '0' || map[y][x + 1] == 'P' || map[y][x + 1] == 'E'))
-	{	
-		path->player_x++;
-		x++;
-		if (map[y][x] == 'C')
-			path->collect--;
-		printf("el player ahora esta en x = %d\n", path->player_x);
-		printf("la x de esta funcion es x = %d\n", x);
-		printf("el collect es = %d\n", path->collect);
-		ft_check_path(path);
-	}
-	path->temp_x = x - 1;
-	// else 
-	// 	ft_check_left(path);
-	return(0);
-}
-
-int ft_check_left(t_path *path)
-{
-	char 	**map;
-	int		x;
-	int		y;
-
-	map = path->map_array;
-	x = path->player_x;
-	y = path->player_y;
-	printf("\n\nhe entrado en posicion IZQUIERDA\n");
-	printf("y = %d\n", path->player_y);
-	printf("x = %d\n", path->player_x);
-	sleep(2);
-	
-	if(map[y][x - 1] == 'E' && path->collect == 0)
-	{
-		ft_putstr_fd("Possible path found", 1);
-		return(1);
-	}
-	else if((x - 1 != path->temp_x) && (map[y][x - 1] == 'C' || map[y][x - 1] == '0'\
-	 || map[y][x - 1] == 'P' || map[y][x - 1] == 'E'))
-	{	
-		path->player_x--;
-		x--;
-		if (map[y][x] == 'C')
-			path->collect--;
-		printf("el player ahora esta en x = %d\n", path->player_x);
-		printf("la x de esta funcion es x = %d\n", x);
-		printf("el collect es = %d\n", path->collect);
-		ft_check_path(path);
-	}
-	// else 
-	// 	ft_check_up(path);
-	return(0);
-}
-
-int ft_check_up(t_path  *path)
-{
-	char 	**map;
-	int		x;
-	int		y;
-
-	map = path->map_array;
-	x = path->player_x;
-	y = path->player_y;
-	if(map[y + 1][x] == 'E' && path->collect == 0)
-	{
-		ft_putstr_fd("Possible path found", 1);
-		return(1);
-	}
-	else if ((y + 1 != path->temp_y ) && (map[y + 1][x] == 'C' \
-	|| map[y + 1][x] == '0' || map[y + 1][x] == 'P' || map[y + 1][x] == 'E'))		
-	{	
-		printf("\n\nhe entrado en posicion SUPERIOR\n");
-		path->player_y++;
-		y++;
-		if (map[y][x] == 'C')
-			path->collect--;
-
-		ft_check_path(path);
-	}
-	// else 
-	// 	ft_check_down(path);
-	return(0);
-}
-
-int ft_check_down(t_path  *path)
-{
-	char 	**map;
-	int		x;
-	int		y;
-
-	map = path->map_array;
-	x = path->player_x;
-	y = path->player_y;
-	if(map[y - 1][x] == 'E' && path->collect == 0)
-	{
-		ft_putstr_fd("Possible path found", 1);
-		return(1);
-	}
-	else if ((y - 1 != path->temp_y) && (map[y - 1][x] == 'C' \
-	|| map[y - 1][x] == '0' || map[y - 1][x] == 'P' || map[y - 1][x] == 'E'))		
-	{	
-		printf("\n\nhe entrado en posicion INFERIOR\n\n");
-		path->player_y--;
-		y--;
-		if (map[y][x] == 'C')
-			path->collect--;
-		ft_check_path(path);
-	}
-	// else
-		
-	return(0);
-}
-
-void	ft_check_path(t_path *path)
+int	ft_check_path(char **map, t_path path, int i, int j)
 {
 	printf("\n\nhe entrado en CHECK PATH\n");
-	printf("y = %d\n", path->player_y);
-	printf("x = %d\n", path->player_x);
-	path->temp_y = path->player_y;
-	path->temp_x = path->player_x;
-	printf("initial temp y = %d\n", path->temp_y);
-	printf("initial temp x = %d\n", path->temp_x);
-	if(ft_check_right(path) == 1)
-		return;
-	printf("estoy pasando de right a left\n");
-	if(ft_check_left(path) == 1)
-		return;
-	if(ft_check_up(path) == 1)
-		return;
-	if(ft_check_down(path) == 1)
-		return;
+	char **visited = path->map_visited;
+	bool exit_found = false;
 
-	printf("ending temp y = %d\n", path->temp_y);
-	printf("ending temp x = %d\n", path->temp_x);
-	printf("no he visto ningun valor posibe\n");
-}*/
+	if(map[i][j] != 1 && visited[i][j] != 1){
+		visited[i][j] = 1;
+		if(map[i][j] == 'C') path->collect--;
+		if(map[i][j] == 'E') exit_false = true;
+		if(exit_found == true && path->collect == 0){
+			ft_putstr_fd("Possible path found", 1);
+			return (0);
+		}
+		//go up
+		int up = ft_check_path(map, visited, i - 1, j);
+		if(up == 0) return (0);
 
+		//go right
+		int right = ft_check_path(map, visited, i, j + 1);
+		if(right == 0) return (0);
 
+		//go down
+		int down = ft_check_path(map, visited, i + 1, j);
+		if(down == 0) return (0);
 
-
-
-
-
+		//go left
+		int left = ft_check_path(map, visited, i, j - 1);
+		if(left == 0) return (0);	
+	}
+	return 1;
+}
 
 int	ft_check_wall(char c)
 {

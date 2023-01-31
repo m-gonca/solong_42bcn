@@ -27,7 +27,7 @@
 int	ft_parameter_checker (int argc, char **argv, t_game *game)
 {
 	char	*str;
-	
+	//---chequear para bajar la linea 31 despues de comprobar que hay dos parametros y no aqui arriba
 	str = argv[1];
 	if (argc != 2)
 	{

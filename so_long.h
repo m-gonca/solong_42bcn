@@ -39,11 +39,7 @@ typedef struct s_game
 
 typedef struct s_path
 {
-	char			**map_array;
-	int				player_y;
-	int				player_x;
-	int				temp_y;
-	int				temp_x;
+	char			**map_visited;
 	int				collect;
 }					t_path;
 
