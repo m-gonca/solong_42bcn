@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "/so_long.h"
 
 
-	int ft_copy_map(t_game game)
+int ft_copy_map(t_game game)
 	{
 		t_path path;
 		

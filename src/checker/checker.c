@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "/so_long.h"
 
 // 1-check parameters are correct:
 //		-2 parameters

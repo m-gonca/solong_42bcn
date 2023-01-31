@@ -43,6 +43,17 @@ typedef struct s_path
 	int				collect;
 }					t_path;
 
+typedef struct s_mlx
+{
+	void			*mlx;
+	void			*win;
+	void			*img;
+	char			*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+}					t_mlx;
+
 int 	ft_checker (int argc, char **argv, t_game *game);
 int		ft_parameter_checker (int argc, char **argv, t_game *game);
 int 	ft_array (t_game *game);
@@ -54,14 +65,13 @@ int		ft_check_player(t_game *game);
 int		ft_check_exit(t_game *game);
 int		ft_check_collectibles(t_game *game);
 
-void	ft_check_path(t_path *path);
+int		ft_copy_map(t_game game)
+int		ft_check_path(char **map, t_path *path, int i, int j);
 int		ft_check_wall(char c);
 int		ft_check_fill(char c);
 int 	ft_find_in_array(char **map_array, char obj);
 
-int 	ft_check_right(t_path *path);
-int 	ft_check_left(t_path *path);
-int 	ft_check_up(t_path  *path);
-int 	ft_check_down(t_path  *path);
+void	ft_mlx_window(t_mlx *mlx, t_game *game)
+
 
 #endif

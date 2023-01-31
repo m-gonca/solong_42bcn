@@ -15,9 +15,17 @@
 int main (int argc, char **argv)
 {
 	t_game	game;
+	t_mlx	mlx;
 	
 	game.moves = 0;
-	ft_checker(argc, argv, &game);
-	printf("Everything is ok");
+
+	//Check if the map is valid
+	if(ft_checker(argc, argv, &game) == 0) printf("Everything is ok");
+	
+	//Open a window with the map, in which every number is a sprite
+	ft_mlx_window(&mlx, &game);
+
+
+
 	return(0);
 }
